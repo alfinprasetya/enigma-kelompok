@@ -1,13 +1,12 @@
 package com.enigma.kelompok.service;
 
 import com.enigma.kelompok.model.User;
-import com.enigma.kelompok.utils.SearchUserRequest;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface UserService {
 
-    List<User> getAll(SearchUserRequest request);
+    Page<User> getAll(String name, Pageable pageable);
     User getOne(Integer id);
     User create(User request);
     User update(Integer id, User request);
