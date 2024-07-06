@@ -8,7 +8,7 @@ public interface UserService {
 
     Page<User> getAll(String name, Pageable pageable);
     User getOne(Integer id);
-    User create(User request);
+    User register(User request);
     User update(Integer id, User request);
     void delete(Integer id);
 

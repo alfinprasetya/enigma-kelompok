@@ -20,9 +20,9 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody User request) {
+    public ResponseEntity<?> register(@RequestBody User request) {
         return Res.renderJson(
-                userService.create(request),
+                userService.register(request),
                 "Created",
                 HttpStatus.CREATED
         );
@@ -49,6 +49,23 @@ public class UserController {
                 "Found a user",
                 HttpStatus.OK
         );
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(
+            @PathVariable Integer id,
+            @RequestBody User request
+    ) {
+        return Res.renderJson(
+                userService.update(id, request),
+                "Succesfully updated",
+                HttpStatus.OK
+        );
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+        userService.delete(id);
     }
 
 }
