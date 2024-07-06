@@ -2,11 +2,8 @@ package com.enigma.kelompok.controller;
 
 import com.enigma.kelompok.model.Stock;
 import com.enigma.kelompok.service.StockService;
-import com.enigma.kelompok.utils.response.PageWrapper;
 import com.enigma.kelompok.utils.response.Res;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -26,8 +23,7 @@ public class StockController {
             @RequestParam(required = false) String code,
             @RequestParam(required = false) Integer price,
             @PageableDefault(page = 0, size = 10)Pageable pageable) {
-        ResponseEntity<?> response = (ResponseEntity<?>) stockService.getAll(name, code, price);
-        return response;
+        return (ResponseEntity<?>) stockService.getAll(name, code, price);
     }
 
     @GetMapping("/{id}")

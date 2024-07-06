@@ -1,6 +1,5 @@
 package com.enigma.kelompok.service.impl;
 
-import org.hibernate.annotations.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
