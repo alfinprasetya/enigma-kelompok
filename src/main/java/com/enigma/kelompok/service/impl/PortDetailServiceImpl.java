@@ -16,7 +16,7 @@ public class PortDetailServiceImpl implements PortDetailService {
     }
 
     @Override
-    public Page<PortDetail> getAll(String name, Pageable pageable) {
+    public Page<PortDetail> getAll(Pageable pageable) {
         return detailRepository.findAll(pageable);
     }
 
