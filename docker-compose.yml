@@ -1,0 +1,23 @@
+services:
+  mysql:
+    container_name: sqlserver
+    image: mysql
+    ports:
+      - 3306:3306
+    networks:
+      - kelompok_network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=java
+  kelompok_app:
+    depends_on:
+      - mysql
+    container_name: kelompok-api
+    image: kelompok:1.0
+    ports:
+      - 8080:8080
+    networks:
+      - kelompok_network
+networks:
+  kelompok_network:
+    name: kelompok_network
